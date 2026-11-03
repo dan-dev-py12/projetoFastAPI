@@ -1,11 +1,13 @@
+# para rodar o nosso codigo executar no terminal: uvicorn main:app --reload
+
 from fastapi import FastAPI
 
 app = FastAPI()
 
-from auth_routes import auth_routes
-from order_routes import order_routes
+from auth_routes import auth_router
+from order_routes import order_router
+
+app.include_router(auth_router) #Incluindo o roteador
+app.include_router(order_router)
 
 
-@app.get("/ordens")
-def get
-# para rodar o nosso codigo executar no terminal: uvicorn main:app --reload
